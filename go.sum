@@ -1,0 +1,9 @@
+github.com/asig/termbox-go v1.1.2-0.20220302224449-1f20c32e7d6d h1:0hG+T9ejp6OKXOK4NvG+WoF/hhG6lgc5fGubFJJn1MU=
+github.com/asig/termbox-go v1.1.2-0.20220302224449-1f20c32e7d6d/go.mod h1:9H7IbAN7basAkA8sF39YVnfrwmWlNKHgC8Hdawix9AQ=
+github.com/asig/termbox-go v1.1.2-0.20220302230557-6faf0a17cd1f h1:gHZUsHdx5ztbSkNQHFkYgIRYoDx+5Xsgymgqghdzn2I=
+github.com/asig/termbox-go v1.1.2-0.20220302230557-6faf0a17cd1f/go.mod h1:9H7IbAN7basAkA8sF39YVnfrwmWlNKHgC8Hdawix9AQ=
+github.com/mattn/go-runewidth v0.0.12 h1:Y41i/hVW3Pgwr8gV+J23B9YEY0zxjptBuCWEaxmAOow=
+github.com/mattn/go-runewidth v0.0.12/go.mod h1:RAqKPSqVFrSLVXbA8x7dzmKdmGzieGRCM46jaSJTDAk=
+github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
+github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
+github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
