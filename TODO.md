@@ -14,3 +14,8 @@ TODO
 - [X] Ask before quitting if dirty 
 - [X] Load
 - [X] Pass file on command line
+
+
+BUGS
+====
+- [ ] Some operations insert 0x00 into lines
