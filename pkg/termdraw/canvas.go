@@ -19,6 +19,7 @@
 package termdraw
 
 import (
+	"log"
 	"unicode/utf8"
 
 	"github.com/asig/termbox-go"
@@ -57,8 +58,8 @@ type Pos struct {
 }
 
 type cell struct {
-	ch   rune
-	tile Tile
+	ch     rune
+	tile   Tile
 	fg, bg termbox.Attribute
 }
 
@@ -84,14 +85,14 @@ type Canvas struct {
 
 func NewCanvas(x, y int, w, h int) *Canvas {
 	c := &Canvas{
-		pX:   x,
-		pY:   y,
-		w:    w,
-		h:    h,
-		ofsX: 0,
-		ofsY: 0,
-		fg:   ColLightGrey,
-		bg:   ColBlack,
+		pX:    x,
+		pY:    y,
+		w:     w,
+		h:     h,
+		ofsX:  0,
+		ofsY:  0,
+		fg:    ColLightGrey,
+		bg:    ColBlack,
 		cells: make([][]cell, canvasHeight),
 	}
 	c.Clear()
@@ -105,8 +106,8 @@ func (c *Canvas) Clear() {
 			c.cells[i][j] = cell{
 				ch:   ' ',
 				tile: 0,
-				fg: c.fg,
-				bg: c.bg,
+				fg:   c.fg,
+				bg:   c.bg,
 			}
 		}
 	}
@@ -131,7 +132,7 @@ func (c *Canvas) SetText(text []string) {
 		text = text[:canvasHeight]
 	}
 
-	for y, l := range(text) {
+	for y, l := range text {
 		for x, i, w := 0, 0, 0; i < len(l); i += w {
 			ch, width := utf8.DecodeRuneInString(l[i:])
 			c.cells[y][x].ch = ch
@@ -247,7 +248,7 @@ func (c *Canvas) Delete(p Pos) {
 	for i := p.X + 1; i < l; i++ {
 		c.cells[p.Y][i-1] = c.cells[p.Y][i]
 	}
-	c.cells[p.Y][l-1] = cell{ch: ' ', fg: c.fg, bg: c.bg, tile:0}
+	c.cells[p.Y][l-1] = cell{ch: ' ', fg: c.fg, bg: c.bg, tile: 0}
 
 }
 
@@ -258,7 +259,7 @@ func (c *Canvas) InsertLine(p Pos) {
 	}
 	c.cells[p.Y] = make([]cell, canvasWidth)
 	for x := 0; x < len(c.cells[p.Y]); x++ {
-		c.cells[p.Y][x] = cell{ch: ' ', fg: c.fg, bg: c.bg, tile:0}
+		c.cells[p.Y][x] = cell{ch: ' ', fg: c.fg, bg: c.bg, tile: 0}
 	}
 }
 
@@ -270,12 +271,15 @@ func (c *Canvas) DeleteLine(p Pos) {
 	y := canvasHeight - 1
 	c.cells[y] = make([]cell, canvasWidth)
 	for x := 0; x < len(c.cells[y]); x++ {
-		c.cells[y][x] = cell{ch: ' ', fg: c.fg, bg: c.bg, tile:0}
+		c.cells[y][x] = cell{ch: ' ', fg: c.fg, bg: c.bg, tile: 0}
 	}
 
 }
 
 func (c *Canvas) SetRune(p Pos, ch rune) {
+	if ch == 0 {
+		log.Fatalf("NULL!!!")
+	}
 	c.cells[p.Y][p.X].ch = ch
 	c.cells[p.Y][p.X].tile = 0
 }
