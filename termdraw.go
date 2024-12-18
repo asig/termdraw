@@ -304,6 +304,9 @@ func handleEvent(ev termbox.Event) (quit bool, helpShown bool) {
 		case ev.Key == termbox.KeyCtrlD:
 			handleDeleteLine()
 		case unicode.IsPrint(ev.Ch) || ev.Key == ' ':
+			if ev.Key == ' ' {
+				ev.Ch = ' '
+			}
 			handleChar(ev.Ch)
 		}
 		//case termbox.EventMouse:
