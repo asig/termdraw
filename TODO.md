@@ -14,7 +14,8 @@ TODO
 - [X] Ask before quitting if dirty 
 - [X] Load
 - [X] Pass file on command line
-
+- [ ] Add block selection
+- [ ] Copy/Paste for blocks
 
 BUGS
 ====
